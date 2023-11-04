@@ -70,16 +70,17 @@ class EloquentTest extends TestCase
         $this->assertDatabaseCount('users', 1);
     }
 
-    public function test_create_project() {
+    public function test_create_project()
+    {
         $response = $this->post('projects', ['name' => 'Some name']);
         $response->assertRedirect();
     }
 
-    public function test_mass_update_projects() {
+    public function test_mass_update_projects()
+    {
         $project = new Project();
         $project->name = 'Old name';
         $project->save();
-
         $this->assertDatabaseHas('projects', ['name' => 'Old name']);
 
         $response = $this->post('projects/mass_update', [
