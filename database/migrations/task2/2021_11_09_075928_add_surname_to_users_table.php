@@ -16,6 +16,8 @@ class AddSurnameToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             // TASK: Add a string field "surname" which would go after the field "name"
             // Write code here
+            $table->string('surname')->after('name')->nullable();
+
         });
     }
 
@@ -27,7 +29,8 @@ class AddSurnameToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            // Drop the 'surname' column if it exists
+            $table->dropColumn('surname');
         });
     }
 }

@@ -15,7 +15,7 @@ class UpdateUsersTable extends Migration
     {
         // TASK: add an if-statement in this file to NOT add column if it already exists
         Schema::table('users', function (Blueprint $table) {
-            $table->string('name');
+            $table->string('name', 100)->change();
         });
     }
 
@@ -26,6 +26,9 @@ class UpdateUsersTable extends Migration
      */
     public function down()
     {
-        //
+        // Revert the 'name' column back to its original state here
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('name')->change();
+        });
     }
 }
