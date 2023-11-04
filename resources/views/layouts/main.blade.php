@@ -18,7 +18,12 @@
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
+            @include('layouts.navigation')
             @yield('content')
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
         </div>
     </body>
 </html>

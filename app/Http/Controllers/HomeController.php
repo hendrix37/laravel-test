@@ -10,8 +10,10 @@ class HomeController extends Controller
     public function users()
     {
         $usersCount = User::count();
-
-        return view('users');
+        $data = [
+            'usersCount' => $usersCount
+        ];
+        return view('users', $data);
     }
 
     // Task 2. Change the View code so alert would not show on the screen
@@ -43,5 +45,11 @@ class HomeController extends Controller
         $users = User::all();
 
         return view('include', compact('users'));
+    }
+    // Task 7. Global Variable.
+    public function index()
+    {
+        $metaTitle = 'Blade Laravel';
+        return view('dashboard', compact('metaTitle'));
     }
 }
