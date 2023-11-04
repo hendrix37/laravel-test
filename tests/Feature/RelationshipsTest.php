@@ -41,7 +41,6 @@ class RelationshipsTest extends TestCase
 
         // Act
         $response = $this->get('/tasks');
-
         // Assert
         $response->assertSeeText('Some task');
         $response->assertStatus(200);
@@ -63,7 +62,7 @@ class RelationshipsTest extends TestCase
         ]);
 
         // Act
-        $response = $this->get('/users/' . $user->id);
+        $response = $this->get('users/' . $user->id);
 
         // Assert
         $response->assertStatus(200);
@@ -154,7 +153,7 @@ class RelationshipsTest extends TestCase
             'attachable_id' => $comment->id,
             'attachable_type' => Comment::class
         ]);
-
+        
         // Act
         $response = $this->get('/attachments');
 

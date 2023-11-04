@@ -17,4 +17,9 @@ class Team extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function country()
+    {
+        return $this->belongsToMany(Country::class);
+    }
+
 }
